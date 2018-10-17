@@ -5,13 +5,13 @@ services:
   camilo:
     restart: always
     privileged: true
-    image: opsforge/chamilo-docker:latest
+    image: chamilo
     ports:
       - 8001:80
     links:
       - camilo-mysql:mysql
     volumes:
-      - /home/vagrant/chamilo-docker/chamilo-lms-1.10.8/:/var/www/html/
+      - /home/joelmsilva/chamilo2/:/var/www/html/
 
   camilo-mysql:
     restart: always
