@@ -11,7 +11,10 @@ services:
     links:
       - camilo-mysql:mysql
     volumes:
-      - /home/joelmsilva/chamilo2/:/var/www/html/
+      - /home/chamilo/:/var/www/html/
+    environment:
+      - VIRTUAL_HOST=chamilo.napore.com
+
 
   camilo-mysql:
     restart: always
@@ -21,4 +24,9 @@ services:
     ports:
       - 8306:3306
     volumes:
-      - /home/vagrant/chamilo-docker/mysql/:/var/lib/mysql/
+      - /home/chamilo-docker/mysql/:/var/lib/mysql/
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
