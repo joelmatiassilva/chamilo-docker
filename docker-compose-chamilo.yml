@@ -1,22 +1,22 @@
-version: '2'
+version: '3.7'
 
 services:
 
-  camilo:
+  chamilo:
     restart: always
     privileged: true
     image: cambacoop/chamilo:latest
     ports:
       - 8001:80
     links:
-      - camilo-mysql:mysql
+      - chamilo-mysql:mysql
     volumes:
       - /home/chamilo/:/var/www/html/
     environment:
       - VIRTUAL_HOST=chamilo.napore.com
 
 
-  camilo-mysql:
+  chamilo-mysql:
     restart: always
     image: mysql:5.5
     environment:

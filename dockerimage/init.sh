@@ -2,8 +2,6 @@
 
 if [ "$(ls -A /var/www/html)" ]; then
    echo "Chamilo already installed - moving on."
-   sudo chown -R root:root ./
-   sudo chmod -R 0777 ./
 else
    echo "Chamilo not installed - deploying."
    cd /var/www/html

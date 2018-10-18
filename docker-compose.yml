@@ -1,19 +1,19 @@
-version: '2'
+version: '3.7'
 
 services:
 
-  camilo:
+  chamilo:
     restart: always
     privileged: true
     image: cambacoop/chamilo:latest
     ports:
       - 8001:80
     links:
-      - camilo-mysql:mysql
+      - chamilo-mysql:mysql
     volumes:
-      - /home/joelmsilva/chamilo2/:/var/www/html/
+      - /home/chamilo/:/var/www/html/
 
-  camilo-mysql:
+  chamilo-mysql:
     restart: always
     image: mysql:5.5
     environment:
@@ -21,4 +21,4 @@ services:
     ports:
       - 8306:3306
     volumes:
-      - /home/vagrant/chamilo-docker/mysql/:/var/lib/mysql/
+      - /home/chamilo-docker/mysql/:/var/lib/mysql/
